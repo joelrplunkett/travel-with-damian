@@ -357,10 +357,11 @@ h1{
 }
 
 .quick-item{
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
-  padding:0.45rem 0;
+  display:grid;
+  grid-template-columns:28px minmax(0, 1fr);
+  gap:10px;
+  align-items:start;
+  padding:0.35rem 0;
 }
 
 .quick-item strong{
@@ -377,16 +378,19 @@ h1{
 }
 
 .quick-icon{
-  font-size:1.2rem;
-  margin-top:2px;
-  width:22px;
-  flex:0 0 22px;
+  width:28px;
+  height:28px;
+  display:grid;
+  place-items:center;
+  font-size:1.05rem;
+  line-height:1;
+  margin-top:0;
 }
 
 .quick-divider{
   height:1px;
   background:rgba(255,255,255,0.14);
-  margin:0.85rem 0;
+  margin:0.65rem 0;
 }
 
 /* =========================================================
