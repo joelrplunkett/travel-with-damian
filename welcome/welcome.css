@@ -250,6 +250,25 @@ h1{
   margin:18px 0 20px;
 }
 
+.hero-portrait{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:center 24%;
+  margin-bottom:18px;
+  border:2px solid rgba(255,255,255,.25);
+  display:block;
+}
+
+.hero-support{
+  margin:2px 0 18px;
+  max-width:48ch;
+  color:rgba(255,255,255,.9);
+  font-size:.95rem;
+  line-height:1.55;
+}
+
 .hero-pills{
   display:flex;
   gap:10px;
@@ -638,6 +657,173 @@ tr:last-child td{
 }
 
 /* =========================================================
+   INLINE PHOTO LINK (used for modal triggers in lists)
+   ========================================================= */
+.inline-photo-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40px;
+  min-width:92px;
+  margin-left:0;
+  padding:0 12px;
+  color:var(--muted);
+  font-size:.78rem;
+  font-weight:600;
+  text-decoration:none;
+  border-radius:999px;
+  border:1px solid rgba(47,70,89,.22);
+  background:rgba(255,255,255,.7);
+  line-height:1.2;
+  white-space:nowrap;
+}
+
+.inline-photo-link:hover{
+  color:var(--brand-2);
+  border-color:rgba(47,70,89,.58);
+  background:rgba(255,255,255,.92);
+}
+
+/* =========================================================
+   CSS-ONLY MODAL (plug guide and similar overlays)
+   ========================================================= */
+.image-modal{
+  position:fixed;
+  inset:0;
+  z-index:120;
+  display:grid;
+  place-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .18s ease;
+}
+
+.image-modal:target{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.image-modal-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(17,24,32,.6);
+  backdrop-filter:blur(2px);
+}
+
+.image-modal-panel{
+  position:relative;
+  z-index:1;
+  width:min(980px, calc(100% - 2rem));
+  margin:0;
+  border-radius:18px;
+  overflow:hidden;
+  background:#fff;
+  border:1px solid rgba(222,212,198,.9);
+  box-shadow:0 24px 56px rgba(10,20,30,.28);
+}
+
+.image-modal-panel figcaption{
+  padding:12px 14px;
+  font-size:.9rem;
+  color:var(--muted);
+  border-bottom:1px solid rgba(222,212,198,.9);
+}
+
+.modal-ref-links{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:8px;
+  font-size:.8rem;
+}
+
+.modal-ref-links a{
+  color:var(--brand-2);
+  text-decoration:none;
+  border-bottom:1px dotted rgba(47,70,89,.6);
+}
+
+.modal-ref-links a:hover{
+  border-bottom-color:rgba(47,70,89,.95);
+}
+
+.plug-modal .image-modal-panel{
+  display:grid;
+  grid-template-rows:auto minmax(0,74px) minmax(0,1fr) auto;
+  width:min(980px, calc(100% - 2rem));
+  height:min(820px, calc(100vh - 2rem));
+}
+
+.plug-modal-note{
+  margin:0;
+  padding:12px 14px;
+  color:var(--muted);
+  font-size:.92rem;
+  line-height:1.35;
+  overflow:auto;
+  border-bottom:1px solid rgba(222,212,198,.9);
+  background:rgba(248,246,242,.72);
+}
+
+.plug-modal-images{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+  background:#101a24;
+  min-height:0;
+}
+
+.plug-modal-images img{
+  width:100%;
+  height:100%;
+  min-height:0;
+  max-height:none;
+  object-fit:contain;
+}
+
+.plug-modal-nav{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 14px 14px;
+  border-top:1px solid rgba(222,212,198,.9);
+  background:#fff;
+}
+
+.plug-modal-nav a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:0 14px;
+  border-radius:999px;
+  border:1px solid rgba(47,70,89,.22);
+  color:var(--brand-2);
+  background:rgba(18,79,123,.06);
+  font-size:.84rem;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.plug-modal-nav a:hover{
+  border-color:rgba(47,70,89,.5);
+  background:rgba(18,79,123,.1);
+}
+
+.image-modal-close{
+  position:absolute;
+  top:10px;
+  right:10px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.34);
+  background:rgba(17,24,32,.66);
+  color:#fff;
+  font-size:.82rem;
+  font-weight:700;
+  text-decoration:none;
+}
+
+/* =========================================================
    FOOTER
    ========================================================= */
 .footer{
@@ -734,5 +920,34 @@ tr:last-child td{
 
   .quick-start-card{
     padding:1.5rem;
+  }
+
+  .inline-photo-link{
+    min-height:44px;
+    min-width:110px;
+    font-size:.86rem;
+  }
+
+  .image-modal-panel{
+    width:calc(100% - 2rem);
+  }
+
+  .plug-modal .image-modal-panel{
+    grid-template-rows:auto minmax(0,96px) minmax(0,1fr) auto;
+    width:calc(100% - 2rem);
+    height:min(620px, calc(100vh - 2rem));
+  }
+
+  .plug-modal-note{
+    font-size:.86rem;
+  }
+
+  .plug-modal-images{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+  }
+
+  .plug-modal-images img{
+    min-height:0;
+    max-height:none;
   }
 }
