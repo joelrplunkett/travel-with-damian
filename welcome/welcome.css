@@ -156,14 +156,22 @@ a:hover{opacity:.88}
   position:relative;
   overflow:hidden;
   border-radius:34px;
-  min-height:600px;
+  min-height:540px;
   box-shadow:0 26px 60px rgba(12,25,37,.18);
   background:
     linear-gradient(180deg, rgba(10,22,28,.35) 0%, rgba(8,26,35,.65) 60%, rgba(6,18,24,.85) 100%),
     radial-gradient(circle at 20% 20%, rgba(255,255,255,.15), transparent 30%),
     linear-gradient(120deg, rgba(31,58,35,.45), rgba(16,70,88,.40) 50%, rgba(36,42,61,.30) 85%),
-    url("../images/scandinavia-hero.jpg") center/cover no-repeat;
+    url("../images/scandinavia-hero.jpg") center 38%/cover no-repeat;
   isolation:isolate;
+}
+
+.page-ge .hero{
+  background:
+    linear-gradient(180deg, rgba(10,22,28,.35) 0%, rgba(8,26,35,.65) 60%, rgba(6,18,24,.85) 100%),
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.15), transparent 30%),
+    linear-gradient(120deg, rgba(31,58,35,.45), rgba(16,70,88,.40) 50%, rgba(36,42,61,.30) 85%),
+    url("../images/europe-amalfi-placeholder.webp") center 34%/cover no-repeat;
 }
 
 .hero::before{
@@ -195,8 +203,8 @@ a:hover{opacity:.88}
 }
 
 .hero-inner{
-  padding:40px 34px 30px;
-  min-height:540px;
+  padding:34px 34px 26px;
+  min-height:520px;
   display:grid;
   grid-template-columns:minmax(0, 1.15fr) minmax(380px, 0.85fr);
   gap:28px;
@@ -212,7 +220,7 @@ a:hover{opacity:.88}
   display:flex;
   align-items:center;
   gap:12px;
-  margin-bottom:8px;
+  margin-bottom:10px;
 }
 
 .eyebrow{
@@ -221,7 +229,7 @@ a:hover{opacity:.88}
   gap:8px;
   width:fit-content;
   max-width:100%;
-  margin-bottom:0;
+  margin:0;
   padding:6px 12px;
   border-radius:999px;
   background:rgba(255,255,255,.10);
@@ -425,21 +433,35 @@ h1{
 
 .top-page-actions{
   display:flex;
-  gap:10px;
+  gap:18px;
   flex-wrap:wrap;
-  margin:-6px 0 22px;
+  align-items:center;
+  margin:-2px 0 26px;
 }
 
 .page-action-btn{
-  background:rgba(255,255,255,.82);
-  border:1px solid var(--line);
-  color:var(--ink);
-  min-height:48px;
-  padding:10px 18px;
-  font-size:.9rem;
-  font-weight:700;
-  box-shadow:0 6px 18px rgba(15,34,48,.05);
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:8px;
+  padding:0;
+  min-height:auto;
+  border:none;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+  color:#5b6b7a;
+  font-size:1rem;
+  font-weight:800;
+  letter-spacing:-0.01em;
   cursor:pointer;
+  text-decoration:none;
+  transition:opacity .18s ease, color .18s ease;
+}
+
+.page-action-btn:hover{
+  opacity:.82;
+  color:var(--brand-2);
 }
 
 .section-actions{
@@ -466,6 +488,8 @@ h1{
   padding:28px;
   margin:16px 0;
   backdrop-filter:blur(10px);
+  break-inside:avoid-page;
+  page-break-inside:avoid;
 }
 
 .section-header{
@@ -963,20 +987,36 @@ tr:last-child td{
    TOUR DIVIDER
    ========================================================= */
 .tour-divider{
-  margin:28px 0;
+  margin:34px 0;
 }
 
 .tour-divider-card{
   position:relative;
-  border-radius:22px;
+  border-radius:26px;
   overflow:hidden;
-  box-shadow:0 18px 40px rgba(15,34,48,.12);
+  box-shadow:0 22px 48px rgba(15,34,48,.12);
+  background:#dfe7e5;
 }
 
 .tour-divider-card img{
   width:100%;
-  height:220px;
+  height:340px;
   object-fit:cover;
+  display:block;
+  transform:scale(1.01);
+}
+
+.page-ge .tour-divider-card img{
+  object-position:center 24%;
+}
+
+.page-ge .tour-divider:first-of-type .tour-divider-card img{
+  height:420px;
+  object-position:center 18%;
+}
+
+body:not(.page-ge) .tour-divider-card img{
+  object-position:center 28%;
 }
 
 .tour-divider-card::after{
@@ -985,19 +1025,22 @@ tr:last-child td{
   inset:0;
   background:linear-gradient(
     180deg,
-    rgba(0,0,0,0.1) 0%,
-    rgba(0,0,0,0.5) 100%
+    rgba(0,0,0,0.04) 0%,
+    rgba(0,0,0,0.18) 45%,
+    rgba(0,0,0,0.52) 100%
   );
 }
 
 .tour-divider-card figcaption{
   position:absolute;
-  bottom:12px;
-  left:14px;
+  bottom:18px;
+  left:20px;
   color:#fff;
   font-weight:800;
-  font-size:.85rem;
-  letter-spacing:.08em;
+  font-size:.82rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  text-shadow:0 2px 12px rgba(0,0,0,.35);
 }
 
 /* =========================================================
@@ -1032,6 +1075,247 @@ tr:last-child td{
 
   .contact-grid{
     grid-template-columns:1fr;
+  }
+}
+
+/* =========================================================
+   PRINT / PDF STYLES
+   - Optimised for guest printing and Save as PDF
+   ========================================================= */
+@media print{
+
+  @page{
+    margin:14mm;
+    size:auto;
+  }
+
+  html,
+  body{
+    background:#fff !important;
+    color:#000 !important;
+    font-size:12pt;
+    line-height:1.45;
+  }
+
+  *{
+    box-shadow:none !important;
+    text-shadow:none !important;
+    filter:none !important;
+  }
+
+  .topbar,
+  .anchor-nav,
+  .top-actions,
+  .top-page-actions,
+  .page-tools,
+  .hero::before,
+  .hero::after,
+  .tour-divider,
+  .plug-modal,
+  .image-modal,
+  .image-modal-backdrop,
+  .image-modal-close,
+  .inline-photo-link,
+  .cta-row,
+  .contact-actions,
+  .mini-btn.whatsapp,
+  .page-action-btn,
+  .contact-pill,
+  .modal-ref-links,
+  .plug-modal-nav,
+  .plug-modal-images{
+    display:none !important;
+  }
+
+  body{
+    margin:0;
+    padding:0;
+  }
+
+  .hero-wrap,
+  .wrap{
+    max-width:100%;
+    margin:0;
+    padding:0;
+  }
+
+  .hero{
+    min-height:auto;
+    border-radius:0;
+    background:#fff !important;
+    color:#000 !important;
+    border:none;
+    overflow:visible;
+  }
+
+  .hero-inner{
+    display:block;
+    min-height:auto;
+    padding:0 0 6pt;
+  }
+
+  .hero-copy,
+  .hero-sub,
+  .hero-support,
+  .eyebrow,
+  h1,
+  .brand-text strong,
+  .brand-text span,
+  .lede,
+  .section h2,
+  .section h3,
+  .tile,
+  .tile p,
+  .tile li,
+  .note,
+  .tip,
+  .tiny,
+  .contact-card,
+  .contact-card p,
+  .contact-phone,
+  .contact-phone-large,
+  .final-note-signoff{
+    color:#000 !important;
+  }
+
+  .hero-sub,
+  .hero-support,
+  .lede,
+  .tiny,
+  .tile p,
+  .tile li,
+  .contact-card p,
+  .note,
+  .tip{
+    font-size:11pt;
+    line-height:1.5;
+  }
+
+  h1{
+    font-size:26pt;
+    line-height:1.1;
+    margin-bottom:10pt;
+    max-width:none;
+  }
+
+  .section{
+    background:#fff !important;
+    border:1px solid #d9d9d9;
+    border-radius:12px;
+    margin:0 0 12pt;
+    padding:12pt;
+    break-inside:auto;
+    page-break-inside:auto;
+  }
+
+  .section-header{
+    margin-bottom:10pt;
+  }
+
+  .section-icon{
+    padding-top:0;
+  }
+
+  .grid,
+  .contact-grid{
+    display:block;
+  }
+
+  .tile,
+  .contact-card,
+  .note,
+  .tip,
+  .steps li,
+  .final-note-signoff{
+    background:#fff !important;
+    border:1px solid #d9d9d9;
+    border-radius:10px;
+    margin-bottom:8pt;
+    padding:10pt;
+    break-inside:avoid-page;
+    page-break-inside:avoid;
+  }
+
+  .tile:last-child,
+  .contact-card:last-child{
+    margin-bottom:0;
+  }
+
+  .steps{
+    gap:8pt;
+  }
+
+  .step-no{
+    background:#000 !important;
+    color:#fff !important;
+    box-shadow:none !important;
+  }
+
+  .quick-start-card{
+    width:100%;
+    min-width:0;
+    margin-top:12pt;
+    padding:12pt;
+    background:#fff !important;
+    color:#000 !important;
+    border:1px solid #d9d9d9;
+    border-radius:12px;
+  }
+
+  .quick-item p,
+  .quick-intro,
+  .quick-start-card h2{
+    color:#000 !important;
+  }
+
+  .hero-head{
+    margin-bottom:2pt;
+  }
+
+  .quick-divider{
+    background:#d9d9d9 !important;
+  }
+
+  .footer{
+    border-top:1px solid #d9d9d9;
+    margin-top:12pt;
+    padding-top:10pt;
+    color:#555 !important;
+    font-size:10pt;
+  }
+
+  a,
+  a:visited{
+    color:#000 !important;
+    text-decoration:underline;
+  }
+
+  .contact-phone a,
+  .contact-phone-large,
+  .contact-phone-large strong{
+    color:#000 !important;
+  }
+
+  .final-note-signoff{
+    margin-left:0;
+    width:100%;
+  }
+
+  .final-note-flag{
+    background:#fff !important;
+    box-shadow:none !important;
+    border:1px solid #d9d9d9;
+  }
+
+  .coach-flow p{
+    break-inside:avoid-page;
+    page-break-inside:avoid;
+    margin-bottom:8pt;
+  }
+
+  img{
+    max-width:100%;
+    page-break-inside:avoid;
   }
 }
 
@@ -1102,12 +1386,32 @@ tr:last-child td{
     white-space:nowrap;
   }
 
+  .tour-divider-card img{
+    height:250px;
+  }
+
+  .page-ge .tour-divider-card img{
+    object-position:center 22%;
+  }
+
+  .page-ge .tour-divider:first-of-type .tour-divider-card img{
+    height:300px;
+    object-position:center 16%;
+  }
+
+  body:not(.page-ge) .tour-divider-card img{
+    object-position:center 24%;
+  }
+
   .top-page-actions{
-    flex-direction:column;
+    flex-direction:row;
+    gap:14px;
+    margin-bottom:22px;
   }
 
   .page-action-btn{
-    width:100%;
+    width:auto;
+    font-size:.95rem;
   }
 
   .section-icon{
