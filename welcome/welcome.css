@@ -143,6 +143,14 @@ a:hover{opacity:.88}
   border:none;
 }
 
+.contact-pills{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:10px;
+  margin-top:16px;
+}
+
 /* =========================================================
    HERO AREA
    ========================================================= */
@@ -535,8 +543,19 @@ h1{
   margin-top:18px;
 }
 
-.practical-core-grid .tile:last-child{
-  grid-column:1 / -1;
+.practical-core-grid,
+.practical-balance-grid{
+  grid-auto-flow:row;
+}
+
+.practical-balance-grid{
+  align-items:start;
+}
+
+@media (min-width: 900px){
+  .practical-balance-grid .tile-gratuities{
+    grid-column:1 / -1;
+  }
 }
 
 .coach-flow{
@@ -574,6 +593,32 @@ h1{
 .tile p:last-child,
 .section p:last-child{
   margin-bottom:0;
+}
+
+.before-travel-grid .tile-arrival-plan{
+  grid-row:auto;
+}
+
+.before-travel-grid .tile p,
+.before-travel-grid .tile li{
+  font-size:1rem;
+  line-height:1.65;
+}
+
+#this-week .note{
+  font-size:1rem;
+  line-height:1.55;
+}
+
+@media (min-width: 980px){
+  .before-travel-grid{
+    grid-template-columns:repeat(3, minmax(0,1fr));
+    align-items:stretch;
+  }
+
+  .before-travel-grid .tile{
+    height:100%;
+  }
 }
 
 .tile-tall{
@@ -1000,23 +1045,29 @@ tr:last-child td{
   overflow:hidden;
   box-shadow:0 22px 48px rgba(15,34,48,.12);
   background:#dfe7e5;
+  aspect-ratio:16 / 6.4;
+  min-height:320px;
+  max-height:440px;
 }
 
 .tour-divider-card img{
   width:100%;
-  height:340px;
+  height:100%;
   object-fit:cover;
   display:block;
   transform:scale(1.01);
 }
 
 .page-ge .tour-divider-card img{
-  object-position:center 24%;
+  object-position:center center;
 }
 
-.page-ge .tour-divider:first-of-type .tour-divider-card img{
-  height:420px;
-  object-position:center 18%;
+.page-ge .tour-divider-card .tour-divider-img-venice{
+  object-position:center 52%;
+}
+
+.page-ge .tour-divider-card .tour-divider-img-paris{
+  object-position:center 56%;
 }
 
 body:not(.page-ge) .tour-divider-card img{
@@ -1391,16 +1442,25 @@ body:not(.page-ge) .tour-divider-card img{
   }
 
   .tour-divider-card img{
-    height:250px;
+    height:100%;
   }
 
   .page-ge .tour-divider-card img{
-    object-position:center 22%;
+    object-position:center center;
   }
 
-  .page-ge .tour-divider:first-of-type .tour-divider-card img{
-    height:300px;
-    object-position:center 16%;
+  .page-ge .tour-divider-card{
+    aspect-ratio:16 / 8.4;
+    min-height:240px;
+    max-height:300px;
+  }
+
+  .page-ge .tour-divider-card .tour-divider-img-venice{
+    object-position:center 54%;
+  }
+
+  .page-ge .tour-divider-card .tour-divider-img-paris{
+    object-position:center 58%;
   }
 
   body:not(.page-ge) .tour-divider-card img{
