@@ -193,6 +193,14 @@ a:hover{opacity:.88}
     url("../images/europe-amalfi-placeholder.webp") center 34%/cover no-repeat;
 }
 
+.page-bhis .hero{
+  background:
+    linear-gradient(180deg, rgba(10,22,28,.30) 0%, rgba(8,26,35,.62) 58%, rgba(6,18,24,.84) 100%),
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.14), transparent 30%),
+    linear-gradient(120deg, rgba(31,58,35,.42), rgba(16,70,88,.35) 50%, rgba(36,42,61,.28) 85%),
+    url("images/coach-glencoe.webp") center 45%/cover no-repeat;
+}
+
 .hero::before{
   content:"";
   position:absolute;
