@@ -23,7 +23,14 @@
    GLOBAL BASICS
    ========================================================= */
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+html{
+  scroll-behavior:smooth;
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  overflow-x:clip;
+}
 
 body{
   margin:0;
@@ -34,6 +41,10 @@ body{
     radial-gradient(circle at top right, rgba(45,79,86,.10), transparent 30%),
     linear-gradient(180deg, #f4f8f7 0%, #edf3f2 38%, #f8fbfa 100%);
   line-height:1.65;
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  overflow-x:clip;
 }
 
 img{max-width:100%;display:block}
@@ -1041,6 +1052,10 @@ tr:last-child td{
 
 .tour-divider-card{
   position:relative;
+  margin:0;
+  width:100%;
+  max-width:100%;
+  min-width:0;
   border-radius:26px;
   overflow:hidden;
   box-shadow:0 22px 48px rgba(15,34,48,.12);
@@ -1378,19 +1393,42 @@ body:not(.page-ge) .tour-divider-card img{
    MOBILE
    ========================================================= */
 @media (max-width: 720px){
+  body,
+  .topbar,
+  .hero-wrap,
+  .hero,
+  .wrap,
+  .section,
+  .tour-divider,
+  .tour-divider-card,
+  .footer{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+  }
+
   .topbar-inner{
+    width:100%;
+    max-width:100%;
     flex-direction:column;
     align-items:stretch;
+    overflow:hidden;
   }
 
   .top-actions{
     justify-content:stretch;
+    width:100%;
+    max-width:100%;
   }
 
   .top-actions a{
-    flex:1 1 0;
+    flex:1 1 100%;
+    width:100%;
+    max-width:100%;
+    min-width:0;
     text-align:center;
     align-self:stretch;
+    overflow-wrap:break-word;
   }
 
   .hero{
@@ -1450,9 +1488,10 @@ body:not(.page-ge) .tour-divider-card img{
   }
 
   .page-ge .tour-divider-card{
-    aspect-ratio:16 / 8.4;
-    min-height:240px;
-    max-height:300px;
+    aspect-ratio:auto;
+    height:240px;
+    min-height:0;
+    max-height:none;
   }
 
   .page-ge .tour-divider-card .tour-divider-img-venice{
@@ -1489,6 +1528,21 @@ body:not(.page-ge) .tour-divider-card img{
   .quick-start-card{
     padding:1.5rem;
     min-width:0;
+    width:100%;
+    max-width:100%;
+    overflow:hidden;
+  }
+
+  .quick-item{
+    grid-template-columns:24px minmax(0, 1fr);
+  }
+
+  .quick-item > div,
+  .quick-item p,
+  .hero-sub{
+    min-width:0;
+    max-width:100%;
+    overflow-wrap:break-word;
   }
 
   .inline-photo-link{
