@@ -638,20 +638,20 @@ h1 {
 .region-image-uk {
   background-image:
     linear-gradient(180deg, rgba(22, 30, 38, 0.12), rgba(22, 30, 38, 0.3)),
-    url("images/damian-wales.webp");
+    url("images/eilean_donan1.webp");
 }
 
 .region-image-europe {
   background-image:
     linear-gradient(180deg, rgba(22, 30, 38, 0.12), rgba(22, 30, 38, 0.3)),
-    url("images/europe-amalfi-placeholder.webp");
+    url("images/prague-eastern-europe.webp");
   background-position: center;
 }
 
 .region-image-east {
   background-image:
     linear-gradient(180deg, rgba(22, 30, 38, 0.12), rgba(22, 30, 38, 0.3)),
-    url("images/scandinavia-trollstigen-placeholder.webp");
+    url("images/trollstigen.webp");
   background-position: center;
 }
 
