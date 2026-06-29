@@ -877,6 +877,13 @@ tr:last-child td{
   border-bottom:1px solid rgba(222,212,198,.9);
 }
 
+.image-modal-panel img{
+  width:100%;
+  max-height:min(72vh, 780px);
+  object-fit:contain;
+  background:#101a24;
+}
+
 .modal-ref-links{
   display:flex;
   gap:12px;
@@ -1402,6 +1409,182 @@ body:not(.page-ge) .tour-divider-card img{
 }
 
 /* =========================================================
+   ARRIVAL GRID
+   ========================================================= */
+.arrival-grid{
+  align-items:stretch;
+}
+
+.arrival-grid .tile{
+  height:100%;
+}
+
+/* =========================================================
+   AIRPORT PHOTO LINKS
+   ========================================================= */
+.airport-photo-links{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:6px;
+}
+
+/* =========================================================
+   PAGE TOOLS (print / download links)
+   ========================================================= */
+.page-tools{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:flex-start;
+  margin:6px 0 18px 8px;
+}
+
+.page-tool-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--brand-2);
+  text-decoration:none;
+  font-size:.99rem;
+  font-weight:700;
+  line-height:1.2;
+}
+
+.page-tool-link:hover{
+  opacity:.78;
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+
+/* =========================================================
+   CONTACT PILL ROW (horizontal pills)
+   ========================================================= */
+.contact-pill-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:18px;
+}
+
+/* =========================================================
+   CONTACT CARD EGS
+   ========================================================= */
+.contact-card-egs .tip{
+  margin-top:10px;
+  margin-bottom:6px;
+  padding:13px 14px;
+}
+
+/* =========================================================
+   BIG CONTACT (phone number emphasis)
+   ========================================================= */
+.big-contact{
+  margin:0 0 10px;
+  font-size:1.22rem;
+  font-weight:800;
+  letter-spacing:-.01em;
+}
+
+/* =========================================================
+   V2 SYSTEM
+   Additive only — activated by .page-v2 on the body.
+   Safe: does NOT affect existing GE or Scandinavia pages.
+   ========================================================= */
+
+.page-v2 .section{
+  scroll-margin-top:96px;
+}
+
+.page-v2 .section-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  width:fit-content;
+  margin:0 0 14px;
+  padding:7px 11px;
+  border-radius:999px;
+  background:rgba(79,113,113,.08);
+  border:1px solid rgba(79,113,113,.12);
+  color:var(--brand-2);
+  font-size:.74rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.page-v2 .priority-section{
+  border:1px solid rgba(79,113,113,.22);
+  background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(255,255,255,.84));
+}
+
+.page-v2 .priority-tile{
+  border-color:rgba(79,113,113,.22);
+  background:linear-gradient(180deg,rgba(248,252,251,.96),rgba(255,255,255,.94));
+}
+
+.page-v2 .soft-note{
+  background:linear-gradient(180deg,rgba(255,255,255,.82),rgba(255,255,255,.68));
+  border:1px solid rgba(200,210,205,.68);
+}
+
+#rhythm .section-header{
+  margin-bottom:26px;
+}
+
+.page-v2 .rhythm-panel{
+  margin:0 0 18px;
+  padding:24px;
+  border-radius:26px;
+  background:rgba(237,243,242,.72);
+  border:1px solid rgba(200,210,205,.68);
+  box-shadow:0 8px 20px rgba(20,28,40,.04);
+}
+
+.page-v2 .rhythm-panel p{
+  margin:0 0 16px;
+  max-width:none;
+  font-size:1.07rem;
+  line-height:1.75;
+}
+
+.page-v2 .rhythm-panel p:last-child{
+  margin-bottom:0;
+}
+
+.page-v2 .calm-steps li{
+  background:rgba(255,255,255,.72);
+}
+
+.page-v2 .quick-intro-final{
+  margin-top:14px;
+}
+
+.page-v2 .section + .section{
+  margin-top:18px;
+}
+
+.page-v2 .tile p,
+.page-v2 .tile li{
+  max-width:66ch;
+}
+
+.page-v2 .tile-gratuities p,
+.page-v2 .tile-gratuities li,
+.page-v2 .tile-optionals p,
+.page-v2 .tile-optionals li,
+.page-v2 .practical-balance-grid .tile p,
+.page-v2 .practical-balance-grid .tile li,
+.page-v2 .lede{
+  max-width:none;
+}
+
+.page-v2 .practical-balance-grid{
+  grid-template-columns:1fr;
+}
+
+/* =========================================================
    MOBILE
    ========================================================= */
 @media (max-width: 720px){
@@ -1598,5 +1781,37 @@ body:not(.page-ge) .tour-divider-card img{
     margin-left:0;
     width:100%;
     align-items:flex-start;
+  }
+
+  /* V2 mobile overrides */
+  .page-v2 .section-kicker{
+    margin-bottom:10px;
+    font-size:.7rem;
+  }
+
+  .page-v2 .rhythm-panel{
+    padding:18px;
+    border-radius:22px;
+  }
+
+  .page-v2 .tile{
+    padding:18px;
+  }
+
+  .page-v2 .anchor-nav{
+    overflow-x:auto;
+    overflow-y:hidden;
+    flex-wrap:nowrap;
+    padding-bottom:4px;
+  }
+
+  .page-v2 .anchor-nav a{
+    white-space:nowrap;
+    font-size:.78rem;
+    padding:8px 10px;
+  }
+
+  .steps li .mini-btn{
+    display:none;
   }
 }
