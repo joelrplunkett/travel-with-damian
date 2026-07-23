@@ -201,6 +201,18 @@ a:hover{opacity:.88}
     url("../images/coach-glencoe.webp") center 45%/cover no-repeat;
 }
 
+.page-nordic .hero{
+  background:
+    linear-gradient(180deg, rgba(8,18,26,.34) 0%, rgba(6,20,30,.64) 58%, rgba(5,14,20,.86) 100%),
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.15), transparent 30%),
+    linear-gradient(120deg, rgba(22,48,58,.42), rgba(16,60,88,.36) 50%, rgba(30,38,54,.30) 85%),
+    url("../images/norway-trollstigen-valley.webp") center 48%/cover no-repeat;
+}
+
+.page-nordic .tour-divider-card img{
+  object-position:center 40%;
+}
+
 .page-bhis .image-modal-img-t1{
   transform:rotate(180deg);
 }
