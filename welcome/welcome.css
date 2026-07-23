@@ -1166,3 +1166,54 @@ tr:last-child td{
     align-items:flex-start;
   }
 }
+
+
+/* Larger phone number in contact section */
+.contact-phone-large {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  line-height: 1.1;
+  margin: 10px 0 14px;
+  letter-spacing: 0.02em;
+}
+
+.contact-phone-large strong {
+  font-weight: 800;
+}
+.contact-feature-card {
+  padding: 32px;
+}
+
+.contact-feature-card h3:first-child {
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  margin-bottom: 28px;
+}
+
+.contact-feature-card .contact-actions-stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.contact-feature-card .contact-actions-stacked .contact-pill {
+  width: 100%;
+  min-height: 76px;
+  justify-content: center;
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  border-radius: 999px;
+}
+
+.contact-feature-card .contact-phone-large {
+  margin-top: 8px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 720px) {
+  .contact-feature-card {
+    padding: 24px;
+  }
+
+  .contact-feature-card .contact-actions-stacked .contact-pill {
+    min-height: 58px;
+  }
+}
