@@ -221,6 +221,14 @@ a:hover{opacity:.88}
     url("../images/eilean_donan1.webp") center 42%/cover no-repeat;
 }
 
+.page-bibi .hero{
+  background:
+    linear-gradient(180deg, rgba(14,18,14,.32) 0%, rgba(12,22,18,.60) 58%, rgba(8,16,12,.84) 100%),
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.14), transparent 30%),
+    linear-gradient(120deg, rgba(34,58,38,.40), rgba(24,62,70,.30) 50%, rgba(40,44,60,.26) 85%),
+    url("../images/damian-wales.webp") center 38%/cover no-repeat;
+}
+
 .page-bhis .image-modal-img-t1{
   transform:rotate(180deg);
 }
