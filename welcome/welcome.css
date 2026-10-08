@@ -237,6 +237,10 @@ a:hover{opacity:.88}
     url("../images/nz-queenstown-aerial.webp") center 55%/cover no-repeat;
 }
 
+.page-nz .tour-divider-card img{
+  object-position:center 45%;
+}
+
 .page-bhis .image-modal-img-t1{
   transform:rotate(180deg);
 }
